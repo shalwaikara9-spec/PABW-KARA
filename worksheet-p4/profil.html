@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Penghargaan Saya</title>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="komponen.css">
+  <link rel="stylesheet" href="tema.css">
+</head>
+<body>
+
+<header>
+  <input type="checkbox" id="tema" class="pengalih-tema">
+  <label for="tema" class="tombol-tema">Tema gelap</label>
+
+  <div class="header-baris">
+    <h1>Daftar Penghargaan Saya</h1>
+
+    <nav aria-label="Navigasi utama">
+      <ul>
+        <li><a href="#daftar-lomba">Daftar Lomba</a></li>
+        <li><a href="#tambah-penghargaan">Tambah Penghargaan</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <main>
+
+    <section id="daftar-lomba">
+      <h2>Daftar Lomba</h2>
+
+<table>
+  <caption>Daftar Lomba dan Penghargaan Saya</caption>
+
+  <thead>
+    <tr>
+      <th scope="col">Nama Lomba</th>
+      <th scope="col">Tahun Lomba</th>
+      <th scope="col">Penghargaan</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <th scope="row">Lomba Festival Kaligrafi Kategori Kitabah (Umum)</th>
+      <td>2026</td>
+      <td>Juara Harapan 2</td>
+    </tr>
+
+    <tr>
+      <th scope="row">Lomba Literasi Aksara Jawa Kategori Pelajar</th>
+      <td>2025</td>
+      <td>Juara 3</td>
+    </tr>
+
+    <tr>
+      <th scope="row">Lomba Festival Kaligrafi Kategori Kitabah (Umum)</th>
+      <td>2024</td>
+      <td>Juara Harapan2</td>
+    </tr>
+
+    <tr>
+      <th scope="row">Lomba Kaligrafi Event Parade Hari Santri</th>
+      <td>2023</td>
+      <td>Juara 2</td>
+    </tr>
+  </tbody>
+</table>
+
+<figure>
+  <img 
+    src="Daftar-Penghargaan.webp.jpeg"
+    alt="Kumpulan penghargaan yang pernah saya raih"
+    width="360"
+    height="640"
+    loading="lazy"
+  >
+  <figcaption>Kumpulan penghargaan yang pernah saya raih.</figcaption>
+</figure>
+    </section>
+
+    <section id="tambah-penghargaan">
+      <h2>Tambah Penghargaan</h2>
+
+<form>
+  
+  <label for="nama-lomba">Nama Lomba</label>
+  <input type="text" id="nama-lomba" name="nama-lomba" required>
+
+  <label for="tahun-lomba">Tahun Lomba</label>
+  <input type="number" id="tahun-lomba" name="tahun-lomba" required>
+
+  <label for="penghargaan">Penghargaan</label>
+  <input type="text" id="penghargaan" name="penghargaan" required>
+
+  <button type="submit">Simpan</button>
+
+</form>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Shalwa Ikara Putri · 25523004 · 2026</p>
+  </footer>
+
+</body>
+</html>
