@@ -2,13 +2,13 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg: #9BD5EA;
-    --color-fg: #061945;
-    --color-surface: #C2E7FF;
-    --color-border: #234F67;
-    --color-primary: #1D3A8C;
-    --color-danger: #C50024;
-    --color-focus: #2563EB;
+    --color-bg: #0F172A;
+    --color-fg: #E2E8F0;
+    --color-surface: #1E293B;
+    --color-border: #334155;
+    --color-primary: #7DA9F7;
+    --color-danger: #FF8A8A;
+    --color-focus: #FFC000;
 
     --shadow-1: 0 1px 3px rgba(0, 0, 0, .45);
   }
@@ -25,11 +25,11 @@
 /* Tema gelap saat checkbox dicentang */
 
 :root:has(#tema:checked) {
-  --color-bg: #9BD5EA;
-  --color-fg: #061945;
-  --color-surface: #C2E7FF;
-  --color-border: #234F67;
-  --color-primary: #1D3A8C;
-  --color-danger: #C50024;
-  --color-focus: #2563EB;
+  --color-bg: #0F172A;
+  --color-fg: #E2E8F0;
+  --color-surface: #1E293B;
+  --color-border: #334155;
+  --color-primary: #7DA9F7;
+  --color-danger: #FF8A8A;
+  --color-focus: #FFC000;
 }
