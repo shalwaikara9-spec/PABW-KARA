@@ -29,7 +29,7 @@ header {
 }
 
 .utama {
-  grid-area: utama;
+  margin-top: var(--space-6);
 }
 
 .galeri {
