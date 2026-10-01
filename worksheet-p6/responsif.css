@@ -1,0 +1,98 @@
+.content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+/* Galeri */
+.galeri-penghargaan {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.kartu-penghargaan {
+  margin: 0;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.kartu-penghargaan img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.kartu-penghargaan figcaption {
+  padding: 0.75rem;
+  font-size: 1rem;
+}
+
+/* Tablet */
+@media (min-width: 48rem) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .galeri-penghargaan {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop */
+@media (min-width: 60rem) {
+  .content {
+    grid-template-columns: 16rem 1fr;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .sisi {
+    display: grid;
+    grid-template-columns: 1fr 18rem;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .sisi h2 {
+    grid-column: 1 / -1;
+  }
+
+  .sisi .table-wrap {
+    grid-column: 1;
+  }
+
+  .sisi .galeri-penghargaan {
+    grid-column: 2;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.sisi {
+  min-width: 0;
+}
+
+.table-wrap {
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
