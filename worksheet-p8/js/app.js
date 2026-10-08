@@ -23,3 +23,10 @@ console.log(pilihanAktif);
 const kalimat = `Nama saya ${nama}, dan saya adalah ${peran}.`;
 
 console.log(kalimat);
+
+function buatPerkenalan({ nama, peran }) {
+  return `${nama} — ${peran}`;
+}
+const formatKeahlian = (daftar) => daftar.join(" · ");
+console.log(buatPerkenalan({ nama, peran }));
+console.log(formatKeahlian(keahlian));
