@@ -5,11 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daftar Penghargaan Saya</title>
+
+  <link rel="icon" href="data:,">
   <link rel="stylesheet" href="tokens.css">
   <link rel="stylesheet" href="base.css">
   <link rel="stylesheet" href="layout.css">
   <link rel="stylesheet" href="komponen.css">
   <link rel="stylesheet" href="tema.css">
+  <link rel="stylesheet" href="responsif.css">
 </head>
 <body>
 
@@ -36,8 +39,9 @@
     <section class="sisi" id="daftar-lomba">
       <h2>Daftar Lomba</h2>
 
-<table>
-  <caption>Daftar Lomba dan Penghargaan Saya</caption>
+<div class="table-wrap">
+  <table>
+    <caption>Daftar Lomba dan Penghargaan Saya</caption>
 
   <thead>
     <tr>
@@ -77,18 +81,42 @@
       <td>Juara 2</td>
     </tr>
   </tbody>
-</table>
+  </table>
+</div>
 
-<figure>
-  <img 
-    src="Daftar-Penghargaan.webp.jpeg"
-    alt="Kumpulan penghargaan yang pernah saya raih"
-    width="360"
-    height="640"
-    loading="lazy"
-  >
-  <figcaption>Kumpulan penghargaan yang pernah saya raih.</figcaption>
-</figure>
+<div class="galeri-penghargaan">
+
+  <figure class="kartu-penghargaan">
+    <img src="penghargaan-1.jpeg" alt="Lomba Kaligrafi Event Parade Hari Santri">
+    <figcaption>Lomba Kaligrafi Event Parade Hari Santri</figcaption>
+  </figure>
+
+  <figure class="kartu-penghargaan">
+    <img src="penghargaan-2.jpeg" alt="Lomba Literasi Aksara Jawa Kategori Pelajar">
+    <figcaption>Lomba Literasi Aksara Jawa Kategori Pelajar</figcaption>
+  </figure>
+
+  <figure class="kartu-penghargaan">
+    <img src="penghargaan-3.jpeg" alt="Lomba Festival Kaligrafi Kategori Kitabah (Umum) 2024">
+    <figcaption>Lomba Festival Kaligrafi Kategori Kitabah (Umum) 2024 </figcaption>
+  </figure>
+
+  <figure class="kartu-penghargaan">
+    <img src="penghargaan-4.jpeg" alt="MTQ Kaligrafi cabang dekorasi ">
+    <figcaption>MTQ Kaligrafi cabang dekorasi </figcaption>
+  </figure>
+
+  <figure class="kartu-penghargaan">
+    <img src="penghargaan-5.jpeg" alt="lomba festival kaligrafi kategori kitabah (umum) 2023">
+    <figcaption>Lomba Festival Kaligrafi Kategori Kitabah (Umum) 2023</figcaption>
+  </figure>
+
+  <figure class="kartu-penghargaan">
+    <img src="penghargaan-6.jpeg" alt="lomba festival kaligrafi kategori kitabah (umum) 2026">
+    <figcaption>Lomba Festival Kaligrafi Kategori Kitabah (Umum) 2026</figcaption>
+  </figure>
+
+</div>
 
 <section class="utama" id="tambah-penghargaan">
       <h2>Tambah Penghargaan</h2>
@@ -117,6 +145,8 @@
   </footer>
 
 </div>
+
+<script type="module" src="js/app.js"></script>
 
 </body>
 </html>
