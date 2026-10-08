@@ -1,0 +1,1 @@
+Saya menggunakan AI untuk membantu memahami materi, membuat contoh kode, dan mengecek error. Saya tetap mencoba dan menjalankan kode sendiri di VS Code.
