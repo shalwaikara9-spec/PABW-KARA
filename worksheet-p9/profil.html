@@ -137,20 +137,29 @@
 <section class="utama" id="tambah-penghargaan">
   <h2>Tambah Penghargaan</h2>
 
-<form>
-  
-  <label for="nama-lomba">Nama Lomba</label>
-  <input type="text" id="nama-lomba" name="nama-lomba" required>
 
-  <label for="tahun-lomba">Tahun Lomba</label>
-  <input type="number" id="tahun-lomba" name="tahun-lomba" required>
+<form id="form-penghargaan" novalidate>
+  <div class="form-kolom">
+    <label for="nama-lomba">Nama Lomba</label>
+    <input type="text" id="nama-lomba" name="nama-lomba" required>
+    <small class="pesan-galat" id="galat-nama"></small>
+  </div>
 
-  <label for="penghargaan">Penghargaan</label>
-  <input type="text" id="penghargaan" name="penghargaan" required>
+  <div class="form-kolom">
+    <label for="tahun-lomba">Tahun Lomba</label>
+    <input type="number" id="tahun-lomba" name="tahun-lomba" required>
+    <small class="pesan-galat" id="galat-tahun"></small>
+  </div>
 
-  <button type="submit">Simpan</button>
+  <div class="form-kolom">
+    <label for="penghargaan">Penghargaan</label>
+    <input type="text" id="penghargaan" name="penghargaan" required>
+    <small class="pesan-galat" id="galat-penghargaan"></small>
+  </div>
 
+  <button type="submit" id="tombol-simpan" disabled>Simpan</button>
 </form>
+
     </section>
 
   </main>

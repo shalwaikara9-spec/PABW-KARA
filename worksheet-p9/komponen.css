@@ -200,3 +200,23 @@ input:user-invalid {
   outline: 3px solid var(--color-focus);
   outline-offset: 2px;
 }
+
+
+.pesan-galat {
+  display: block;
+  min-height: 1em;
+}
+
+.pesan-galat:empty {
+  display: none;
+}
+
+input[aria-invalid="true"] {
+  border-color: var(--color-danger);
+  border-width: 2px;
+}
+
+#tombol-simpan:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
