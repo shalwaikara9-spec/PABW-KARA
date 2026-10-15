@@ -1,14 +1,31 @@
+
 [
   {
     "id": 1,
-    "judul": "Halaman Profil",
+    "judul": "Lomba Festival Kaligrafi Kategori Kitabah (Umum)",
     "tahun": 2026,
-    "kategori": "web"
+    "penghargaan": "Juara Harapan 2",
+    "kategori": "desain"
   },
   {
     "id": 2,
-    "judul": "Katalog Produk",
-    "tahun": 2026,
-    "kategori": "web"
+    "judul": "Lomba Literasi Aksara Jawa Kategori Pelajar",
+    "tahun": 2025,
+    "penghargaan": "Juara 3",
+    "kategori": "desain"
+  },
+  {
+    "id": 3,
+    "judul": "Lomba Festival Kaligrafi Kategori Kitabah (Umum)",
+    "tahun": 2024,
+    "penghargaan": "Juara Harapan 2",
+    "kategori": "desain"
+  },
+  {
+    "id": 4,
+    "judul": "Lomba Kaligrafi Event Parade Hari Santri",
+    "tahun": 2023,
+    "penghargaan": "Juara 2",
+    "kategori": "desain"
   }
 ]

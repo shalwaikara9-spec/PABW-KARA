@@ -1,58 +1,63 @@
 
-import { daftarProyek, pilihanAktif } from "./app.js";
+const wadah = document.querySelector("#daftar");
+const kosong = document.querySelector("#kosong");
+const muatEl = document.querySelector("#muat");
+const barisFilter = document.querySelector("#filter");
 
-const daftar = document.querySelector("#daftar");
-const filter = document.querySelector("#filter");
-const pesanKosong = document.querySelector("#kosong");
+export function render(daftar) {
+  wadah.replaceChildren();
 
-function tampilkanProyek(kategori = pilihanAktif) {
-  if (!daftar || !pesanKosong) return;
+  if (daftar.length === 0) {
+    kosong.textContent = "Belum ada data.";
+    kosong.hidden = false;
+    return;
+  }
 
-  const proyekTampil = daftarProyek.filter((proyek) => {
-    if (kategori === "semua") return true;
-    if (kategori === "web") return proyek.kategori === "web";
-    if (kategori === "desain") return proyek.kategori === "desain";
-    return false;
-  });
+  kosong.hidden = true;
 
-  daftar.replaceChildren();
-
-  proyekTampil.forEach((proyek) => {
+  daftar.forEach((proyek) => {
     const item = document.createElement("li");
     const judul = document.createElement("h3");
     const tahun = document.createElement("p");
-    const penghargaan = document.createElement("p");
+    const kategori = document.createElement("p");
 
     judul.textContent = proyek.judul;
     tahun.textContent = `Tahun: ${proyek.tahun}`;
-    penghargaan.textContent = `Penghargaan: ${proyek.penghargaan}`;
+    kategori.textContent = `Kategori: ${proyek.kategori}`;
 
-    item.append(judul, tahun, penghargaan);
-    daftar.append(item);
+    item.append(judul, tahun, kategori);
+    wadah.append(item);
   });
-
-  pesanKosong.hidden = proyekTampil.length > 0;
 }
 
+export function aturMemuat(aktif) {
+  muatEl.hidden = !aktif;
+}
 
-if (filter) {
-  filter.addEventListener("click", (event) => {
+export function tampilkanGalat(pesan) {
+  wadah.replaceChildren();
+  kosong.textContent = pesan;
+  kosong.hidden = false;
+}
+
+export function pasangFilter(daftar) {
+  barisFilter.addEventListener("click", (event) => {
     const tombol = event.target.closest("button[data-kategori]");
-
-    if (!tombol || !filter.contains(tombol)) return;
+    if (!tombol) return;
 
     const kategori = tombol.dataset.kategori;
 
-    tampilkanProyek(kategori);
+    const hasil = daftar.filter((proyek) =>
+      kategori === "semua" || proyek.kategori === kategori
+    );
 
-    filter.querySelectorAll("button").forEach((item) => {
+    render(hasil);
+
+    barisFilter.querySelectorAll("button").forEach((item) => {
       item.classList.toggle("aktif", item === tombol);
     });
   });
 }
-
-tampilkanProyek();
-
 
 const form = document.querySelector("#form-penghargaan");
 const namaInput = document.querySelector("#nama-lomba");
