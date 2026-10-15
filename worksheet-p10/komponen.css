@@ -1,0 +1,222 @@
+.form-kolom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-fg);
+}
+
+button {
+  font: inherit;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: var(--color-surface);
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+input:user-invalid {
+  border-color: var(--color-danger);
+  border-width: 2px;
+}
+
+.pesan-galat {
+  display: none;
+  color: var(--color-danger);
+  font-size: var(--text-sm);
+}
+
+.form-kolom:has(input:user-invalid) .pesan-galat {
+  display: block;
+}
+
+
+#proyek {
+  margin-top: 24px;
+  padding: 24px;
+  overflow: hidden;
+}
+
+#filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+#daftar {
+  padding-left: 24px;
+  margin: 0;
+}
+
+#daftar li {
+  margin-bottom: 16px;
+  overflow-wrap: anywhere;
+}
+
+#daftar h3 {
+  margin: 0 0 8px;
+}
+
+#daftar p {
+  margin: 4px 0;
+}
+
+#kosong {
+  margin: 12px 0;
+}
+
+
+#tambah-penghargaan form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+}
+
+#tambah-penghargaan input {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+#tambah-penghargaan button {
+  justify-self: start;
+}
+
+
+/* Susunan utama halaman */
+.isi {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: stretch;
+}
+
+#daftar-lomba,
+#proyek,
+#tambah-penghargaan {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Galeri penghargaan */
+.galeri-penghargaan {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.kartu-penghargaan {
+  min-width: 0;
+  margin: 0;
+}
+
+.kartu-penghargaan img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+}
+
+@media (max-width: 600px) {
+  .galeri-penghargaan {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* Tabel penghargaan */
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.tabel-penghargaan {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.tabel-penghargaan caption {
+  padding: 12px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.tabel-penghargaan th,
+.tabel-penghargaan td {
+  padding: 12px 10px;
+  vertical-align: middle;
+  overflow-wrap: anywhere;
+}
+
+.tabel-penghargaan th:nth-child(1),
+.tabel-penghargaan td:nth-child(1) {
+  width: 8%;
+  text-align: center;
+}
+
+.tabel-penghargaan th:nth-child(2),
+.tabel-penghargaan td:nth-child(2) {
+  width: 42%;
+}
+
+.tabel-penghargaan th:nth-child(3),
+.tabel-penghargaan td:nth-child(3) {
+  width: 18%;
+  text-align: center;
+}
+
+.tabel-penghargaan th:nth-child(4),
+.tabel-penghargaan td:nth-child(4) {
+  width: 32%;
+}
+
+#filter button.aktif {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+
+.pesan-galat {
+  display: block;
+  min-height: 1em;
+}
+
+.pesan-galat:empty {
+  display: none;
+}
+
+input[aria-invalid="true"] {
+  border-color: var(--color-danger);
+  border-width: 2px;
+}
+
+#tombol-simpan:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
