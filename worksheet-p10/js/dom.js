@@ -106,6 +106,7 @@ kolomForm.forEach((kolom) => {
   });
 });
 
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -120,6 +121,30 @@ form.addEventListener("submit", (event) => {
     return;
   }
 
-  alert("Form valid! Data penghargaan siap diproses.");
+  const proyekBaru = {
+    judul: namaInput.value.trim(),
+    tahun: Number(tahunInput.value),
+    kategori: "desain",
+    penghargaan: penghargaanInput.value.trim()
+  };
+
+  const item = document.createElement("li");
+  const judul = document.createElement("h3");
+  const tahun = document.createElement("p");
+  const kategori = document.createElement("p");
+  const penghargaan = document.createElement("p");
+
+  judul.textContent = proyekBaru.judul;
+  tahun.textContent = `Tahun: ${proyekBaru.tahun}`;
+  kategori.textContent = `Kategori: ${proyekBaru.kategori}`;
+  penghargaan.textContent =
+    `Penghargaan: ${proyekBaru.penghargaan}`;
+
+  item.append(judul, tahun, kategori, penghargaan);
+  wadah.append(item);
+
+  kosong.hidden = true;
+  form.reset();
+  periksaForm();
 });
 

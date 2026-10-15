@@ -33,3 +33,43 @@
   --color-danger: #FF8A8A;
   --color-focus: #FFC000;
 }
+
+
+
+/* Perbaikan warna tabel tema gelap */
+:root:has(#tema:checked) .tabel-penghargaan th {
+  background: #263750;
+  color: #ffffff;
+}
+
+:root:has(#tema:checked) .tabel-penghargaan td {
+  background: #1E293B;
+  color: #E2E8F0;
+}
+
+:root:has(#tema:checked) .tabel-penghargaan th,
+:root:has(#tema:checked) .tabel-penghargaan td {
+  border-color: #334155;
+}
+
+
+/* Filter dan kartu proyek saat tema gelap */
+:root:has(#tema:checked) #filter button {
+  background: #1E293B;
+  color: #E2E8F0;
+  border: 1px solid #334155;
+}
+
+:root:has(#tema:checked) #filter button:hover,
+:root:has(#tema:checked) #filter button.aktif {
+  background: #334155;
+  color: #FFFFFF;
+}
+
+:root:has(#tema:checked) #daftar li {
+  background: #1E293B;
+  color: #E2E8F0;
+  border: 1px solid #334155;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+

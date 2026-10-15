@@ -1,5 +1,5 @@
 
-const ALAMAT = 'data/proyek.json';
+const ALAMAT = 'https://raw.githubusercontent.com/shalwaikara9-spec/PABW-KARA/refs/heads/main/worksheet-p10/data/proyek.json';
 
 export async function ambilProyek() {
   try {

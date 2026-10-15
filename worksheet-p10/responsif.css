@@ -1,98 +1,189 @@
-.content {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-4);
+/* Tema biru soft */
+:root {
+  --color-bg: #c5eafb;
+  --color-fg: #17365d;
+  --color-surface: #e0eff7;
+  --color-border: #8ec2e0;
+  --color-primary: #16549f;
+  --shadow-1: 0 6px 20px rgba(23, 54, 93, .12);
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-4);
+/* Dasar halaman */
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
 }
 
-/* Galeri */
+.page {
+  width: min(1200px, calc(100% - 24px));
+  margin: auto;
+}
+
+/* Susunan bagian */
+.isi {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+#daftar-lomba,
+#proyek,
+#tambah-penghargaan,
+.kartu,
+.kartu-penghargaan,
+#daftar li {
+  min-width: 0;
+  padding: 20px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-1);
+  box-sizing: border-box;
+  transition: .2s ease;
+}
+
+.kartu:hover,
+.kartu-penghargaan:hover,
+#daftar li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(23, 54, 93, .18);
+}
+
+/* Tabel */
+.table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.tabel-penghargaan {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+}
+
+.tabel-penghargaan th,
+.tabel-penghargaan td {
+  padding: 12px;
+  border-bottom: 1px solid var(--color-border);
+  overflow-wrap: anywhere;
+}
+
+.tabel-penghargaan th {
+  background: #dceefa;
+}
+
+/* Galeri foto */
 .galeri-penghargaan {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
 }
 
 .kartu-penghargaan {
-  margin: 0;
-  background: white;
-  border-radius: 10px;
+  padding: 0;
   overflow: hidden;
 }
 
 .kartu-penghargaan img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
   display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
 }
 
 .kartu-penghargaan figcaption {
-  padding: 0.75rem;
-  font-size: 1rem;
+  padding: 12px;
+}
+
+/* Daftar proyek */
+#filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#filter button {
+  border-radius: 999px;
+  background: #d6ebf9;
+  color: var(--color-fg);
+}
+
+#filter button.aktif,
+#filter button:hover {
+  background: var(--color-primary);
+  color: white;
+}
+
+#daftar {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  padding: 0;
+  list-style: none;
+}
+
+#daftar li {
+  overflow-wrap: anywhere;
+}
+
+/* Form */
+input,
+select,
+textarea {
+  max-width: 100%;
+  box-sizing: border-box;
+  background: #f0f8fd;
+  color: var(--color-fg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+button {
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(23, 54, 93, .10);
+}
+
+footer {
+  margin-top: 24px;
+  padding-block: 20px;
+  border-top: 1px solid var(--color-border);
 }
 
 /* Tablet */
-@media (min-width: 48rem) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
+@media (max-width: 900px) {
   .galeri-penghargaan {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #daftar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-/* Desktop */
-@media (min-width: 60rem) {
-  .content {
-    grid-template-columns: 16rem 1fr;
+/* HP */
+@media (max-width: 600px) {
+  #daftar-lomba,
+  #proyek,
+  #tambah-penghargaan {
+    padding: 14px;
   }
 
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
+  #daftar {
+    grid-template-columns: 1fr;
   }
 
-  .sisi {
-    display: grid;
-    grid-template-columns: 1fr 18rem;
-    gap: 2rem;
-    align-items: start;
+  #tambah-penghargaan form {
+    grid-template-columns: 1fr;
   }
 
-  .sisi h2 {
-    grid-column: 1 / -1;
+  .kartu-penghargaan img {
+    height: 150px;
   }
-
-  .sisi .table-wrap {
-    grid-column: 1;
-  }
-
-  .sisi .galeri-penghargaan {
-    grid-column: 2;
-  }
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-.sisi {
-  min-width: 0;
-}
-
-.table-wrap {
-  max-width: 100%;
-  min-width: 0;
-  overflow-x: auto;
-}
-
-p {
-  font-size: 1rem;
-  line-height: 1.6;
 }
