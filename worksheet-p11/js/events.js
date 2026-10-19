@@ -1,13 +1,16 @@
-
 import {
   pilihKategori,
   tambahFavorit,
+  aturUlang,
   state
 } from './state.js';
 
 export function pasangPendengar() {
   const barisFilter = document.querySelector("#filter");
   const wadah = document.querySelector("#daftar");
+  const tombolAturUlang = document.querySelector("#atur-ulang");
+
+  tombolAturUlang.addEventListener("click", aturUlang);
 
   // Filter kategori
   barisFilter.addEventListener("click", (event) => {

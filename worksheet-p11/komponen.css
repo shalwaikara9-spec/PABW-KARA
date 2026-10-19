@@ -220,3 +220,8 @@ input[aria-invalid="true"] {
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+#atur-ulang {
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
