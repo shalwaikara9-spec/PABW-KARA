@@ -1,16 +1,28 @@
 
-import { state } from './state.js';
-import { render } from './dom.js';
+import {
+  pilihKategori,
+  tambahFavorit,
+  state
+} from './state.js';
 
 export function pasangPendengar() {
   const barisFilter = document.querySelector("#filter");
+  const wadah = document.querySelector("#daftar");
 
+  // Filter kategori
   barisFilter.addEventListener("click", (event) => {
     const tombol = event.target.closest("button[data-kategori]");
     if (!tombol) return;
 
-    state.kategoriAktif = tombol.dataset.kategori;
-    render(state);
+    pilihKategori(tombol.dataset.kategori);
+  });
+
+  // Tombol favorit
+  wadah.addEventListener("click", (event) => {
+    const tombol = event.target.closest("button.favorit");
+    if (!tombol) return;
+
+    tambahFavorit(Number(tombol.dataset.id));
   });
 
   const form = document.querySelector("#form-penghargaan");
@@ -72,17 +84,26 @@ export function pasangPendengar() {
       return;
     }
 
+    const idBaru = Math.max(
+      0,
+      ...state.daftarProyek.map((proyek) => proyek.id || 0)
+    ) + 1;
+
     const proyekBaru = {
+      id: idBaru,
       judul: namaInput.value.trim(),
       tahun: Number(tahunInput.value),
       kategori: "desain",
       penghargaan: penghargaanInput.value.trim()
     };
 
-    state.daftarProyek.push(proyekBaru);
-    state.kategoriAktif = "semua";
+    state.daftarProyek = [
+      ...state.daftarProyek,
+      proyekBaru
+    ];
 
-    render(state);
+    pilihKategori("semua");
+
     form.reset();
     periksaForm();
   });

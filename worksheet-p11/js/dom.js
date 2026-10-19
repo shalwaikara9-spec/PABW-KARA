@@ -21,17 +21,9 @@ export function render(state) {
     kosong.hidden = true;
 
     daftar.forEach((proyek) => {
-      const item = document.createElement("li");
-      const judul = document.createElement("h3");
-      const tahun = document.createElement("p");
-      const kategori = document.createElement("p");
-
-      judul.textContent = proyek.judul;
-      tahun.textContent = `Tahun: ${proyek.tahun}`;
-      kategori.textContent = `Kategori: ${proyek.kategori}`;
-
-      item.append(judul, tahun, kategori);
-      wadah.append(item);
+      wadah.append(
+        buatKartu(proyek, state.favorit)
+      );
     });
   }
 
@@ -41,6 +33,30 @@ export function render(state) {
       tombol.dataset.kategori === state.kategoriAktif
     );
   });
+}
+
+export function buatKartu(proyek, favorit) {
+  const item = document.createElement("li");
+  item.className = "kartu";
+
+  const judul = document.createElement("h3");
+  judul.textContent = proyek.judul;
+
+  const tahun = document.createElement("p");
+  tahun.textContent = `Tahun: ${proyek.tahun}`;
+
+  const kategori = document.createElement("p");
+  kategori.textContent = `Kategori: ${proyek.kategori}`;
+
+  const tombol = document.createElement("button");
+  tombol.className = "favorit";
+  tombol.dataset.id = proyek.id;
+  tombol.textContent = favorit.includes(proyek.id) ? "★" : "☆";
+  tombol.setAttribute("aria-label", "Tandai favorit");
+
+  item.append(judul, tahun, kategori, tombol);
+
+  return item;
 }
 
 export function aturMemuat(aktif) {
