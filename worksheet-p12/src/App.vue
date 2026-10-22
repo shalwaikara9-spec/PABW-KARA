@@ -1,10 +1,25 @@
 
+
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { computed, onMounted, watch } from 'vue'
+
 import KepalaProfil from './components/KepalaProfil.vue'
 import TombolFilter from './components/TombolFilter.vue'
 import DaftarProyek from './components/DaftarProyek.vue'
 import FormKontak from './components/FormKontak.vue'
+
+import {
+  state,
+  simpan,
+  muat,
+  pulihkan,
+  pilihKategori,
+  tambahFavorit,
+  aturUlang,
+  isiProyek,
+} from './state.js'
+
+import { ambilProyek } from './api.js'
 
 const profil = {
   nama: 'Shalwa Ikara Putri',
@@ -12,51 +27,44 @@ const profil = {
   peran: 'Mahasiswa Informatika'
 }
 
-const daftarProyek = ref([])
-const kategoriAktif = ref('semua')
-const favorit = ref([])
-const sedangMemuat = ref(true)
-const pesanGalat = ref('')
-
 const proyekTampil = computed(() => {
-  if (kategoriAktif.value === 'semua') {
-    return daftarProyek.value
+  const daftar = state.daftarProyek
+
+  if (state.kategoriAktif === 'semua') {
+    return daftar
   }
 
-  return daftarProyek.value.filter(
-    proyek => proyek.kategori === kategoriAktif.value
+  return daftar.filter(
+    proyek => proyek.kategori === state.kategoriAktif
   )
 })
 
+
+
 onMounted(async () => {
+  pulihkan(muat())
+
   try {
-    const respons = await fetch('/data/proyek.json')
-    if (!respons.ok) throw new Error('Data proyek gagal dimuat')
-    daftarProyek.value = await respons.json()
+    const data = await ambilProyek()
+    console.log('Data proyek:', data)
+    isiProyek(data)
+
+console.log('Isi state:', state.daftarProyek)
+console.log('Kategori aktif:', state.kategoriAktif)
+console.log('Proyek tampil:', proyekTampil.value)
+
+
   } catch (galat) {
-    pesanGalat.value = 'Data gagal dimuat. Periksa lokasi berkas proyek.json.'
+    state.galat = 'Data gagal dimuat. Periksa koneksi internet.'
     console.error(galat)
   } finally {
-    sedangMemuat.value = false
+    state.memuat = false
   }
 })
 
-function pilihKategori(kategori) {
-  kategoriAktif.value = kategori
-}
 
-function tambahFavorit(id) {
-  if (favorit.value.includes(id)) {
-    favorit.value = favorit.value.filter(item => item !== id)
-  } else {
-    favorit.value.push(id)
-  }
-}
+watch(state, nilai => simpan(nilai), { deep: true })
 
-function aturUlang() {
-  kategoriAktif.value = 'semua'
-  favorit.value = []
-}
 </script>
 
 <template>
@@ -139,18 +147,18 @@ function aturUlang() {
         <h2>Daftar Proyek</h2>
 
         <TombolFilter
-          :kategori-aktif="kategoriAktif"
-          @pilih-kategori="pilihKategori"
-          @atur-ulang="aturUlang"
-        />
+  :kategori-aktif="state.kategoriAktif"
+  @pilih-kategori="pilihKategori"
+  @atur-ulang="aturUlang"
+/>
 
-        <DaftarProyek
-          :proyek-tampil="proyekTampil"
-          :sedang-memuat="sedangMemuat"
-          :pesan-galat="pesanGalat"
-          :favorit="favorit"
-          @tambah-favorit="tambahFavorit"
-        />
+        
+<DaftarProyek
+  :proyek-tampil="proyekTampil"
+  :state="state"
+  @tambah-favorit="tambahFavorit"
+/>
+
       </section>
 
       <FormKontak />

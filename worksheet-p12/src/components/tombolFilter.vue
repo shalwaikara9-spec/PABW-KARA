@@ -23,11 +23,7 @@ const emit = defineEmits(['pilih-kategori', 'atur-ulang'])
     </button>
   </div>
 
-  <button
-    type="button"
-    id="atur-ulang"
-    @click="emit('atur-ulang')"
-  >
+  <button type="button" id="atur-ulang" @click="emit('atur-ulang')">
     Atur ulang
   </button>
 </template>

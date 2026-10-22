@@ -5,16 +5,8 @@ defineProps({
     type: Array,
     required: true,
   },
-  sedangMemuat: {
-    type: Boolean,
-    required: true,
-  },
-  pesanGalat: {
-    type: String,
-    required: true,
-  },
-  favorit: {
-    type: Array,
+  state: {
+    type: Object,
     required: true,
   },
 })
@@ -23,9 +15,11 @@ const emit = defineEmits(['tambah-favorit'])
 </script>
 
 <template>
-  <p v-if="sedangMemuat">Memuat data...</p>
-  <p v-else-if="pesanGalat">{{ pesanGalat }}</p>
-  <p v-else-if="proyekTampil.length === 0">Belum ada data.</p>
+  <p v-if="state.memuat">Memuat data...</p>
+  <p v-else-if="state.galat">{{ state.galat }}</p>
+  <p v-else-if="proyekTampil.length === 0">
+    Belum ada data.
+  </p>
 
   <ul id="daftar">
     <li
@@ -40,10 +34,14 @@ const emit = defineEmits(['tambah-favorit'])
       <button
         type="button"
         class="favorit"
-        :aria-label="favorit.includes(proyek.id) ? 'Hapus dari favorit' : 'Tandai favorit'"
+        :aria-label="
+          state.favorit.includes(proyek.id)
+            ? 'Hapus dari favorit'
+            : 'Tandai favorit'
+        "
         @click="emit('tambah-favorit', proyek.id)"
       >
-        {{ favorit.includes(proyek.id) ? '★' : '☆' }}
+        {{ state.favorit.includes(proyek.id) ? '★' : '☆' }}
       </button>
     </li>
   </ul>
